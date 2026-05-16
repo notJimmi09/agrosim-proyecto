@@ -1,37 +1,44 @@
 import React from 'react';
+// Importamos tus imágenes usando los nombres exactos de tu carpeta assets
+import iconInicio from '../assets/inicio.png';
+import iconParcelas from '../assets/parcelas.png';
+import iconCultivo from '../assets/cultivo.png';
+import iconSimulacion from '../assets/simulacion.png';
+import iconReporte from '../assets/reporte.png';
+import iconInventario from '../assets/inventario.png';
+import iconAjustes from '../assets/ajustes.png';
 
-const Sidebar = () => {
+// 1. Recibimos las propiedades que le mandó App.jsx
+const Sidebar = ({ activeTab, setActiveTab }) => {
+  
   const menuItems = [
-    { name: 'Inicio', icon: '🏠' },
-    { name: 'Parcelas', icon: '📂' },
-    { name: 'Cultivos', icon: '🌿', active: true },
-    { name: 'Simulación', icon: '📈' },
-    { name: 'Reportes', icon: '📋' },
-    { name: 'Inventario', icon: '📦' },
-    { name: 'Configuración', icon: '⚙️' },
+    { name: 'Inicio', icon: iconInicio },
+    { name: 'Parcelas', icon: iconParcelas },
+    { name: 'Cultivos', icon: iconCultivo },
+    { name: 'Simulación', icon: iconSimulacion },
+    { name: 'Reportes', icon: iconReporte },
+    { name: 'Inventario', icon: iconInventario },
+    { name: 'Configuración', icon: iconAjustes },
   ];
 
   return (
     <aside className="sidebar">
-      <div className="logo">
-        <h2>AgroSim</h2>
-        <span>Gestión inteligente</span>
-      </div>
-      
+      {/* ... tu contenedor de logo ... */}
       <nav>
         {menuItems.map((item, index) => (
-          <div key={index} className={`nav-item ${item.active ? 'active' : ''}`}>
-            <span>{item.icon}</span>
+          <div 
+            key={index} 
+            /* Se pone brillante si coincide con la pestaña activa */
+            className={`nav-item ${activeTab === item.name ? 'active' : ''}`}
+            /* Al hacer clic, le cambia el estado a App.jsx instantáneamente */
+            onClick={() => setActiveTab(item.name)}
+          >
+            <img src={item.icon} alt={item.name} className="nav-icon" />
             {item.name}
           </div>
         ))}
       </nav>
-
-      <div className="weather-card">
-        <p>Clima actual</p>
-        <h3>24°C</h3>
-        <span>Parcialmente nublado</span>
-      </div>
+      {/* ... tu tarjeta de clima ... */}
     </aside>
   );
 };

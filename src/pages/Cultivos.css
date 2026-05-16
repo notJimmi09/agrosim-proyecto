@@ -1,0 +1,338 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DE LA PÁGINA DE CULTIVOS (Cultivos.jsx)
+   ========================================================================== */
+
+.cultivos-view-container {
+  display: flex;
+  gap: 25px;
+  padding: 10px 20px;
+  height: calc(100vh - 120px);
+  font-family: sans-serif;
+}
+
+.cultivos-left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera superior */
+.header-cultivos-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.header-cultivos-top h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 5px 0;
+  color: #000000;
+}
+
+.subtitle-txt {
+  margin: 0;
+  color: #555555;
+  font-size: 0.95rem;
+}
+
+.btn-agregar-cultivo {
+  background-color: #1a4d2e; /* Verde corporativo oscuro */
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-agregar-cultivo:hover {
+  background-color: #133921;
+}
+
+.section-subtitle-label {
+  font-size: 1.4rem;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Pastillas de filtro de categorías */
+.category-pills-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.pill-btn {
+  background: white;
+  border: 1.5px solid #222222;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill-btn.active {
+  background-color: #348443; /* Verde intermedio para los botones activos */
+  color: white;
+  border-color: #348443;
+}
+
+/* Grid de tarjetas del catálogo */
+.cultivos-catalog-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cultivo-catalog-card {
+  background: white;
+  border: 2px solid #222222;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.card-image-placeholder {
+  background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #222222;
+}
+
+.tomato-card-emoji {
+  font-size: 3rem;
+}
+
+.card-body-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title-row h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.badge-category {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.card-specs-list {
+  font-size: 0.82rem;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 5px 0;
+}
+
+.card-specs-list p {
+  margin: 0;
+}
+
+.btn-card-details {
+  background: white;
+  border: 1.5px solid #222222;
+  padding: 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.btn-card-details:hover {
+  background-color: #f5f5f5;
+}
+
+/* Puntitos del carrusel inferior */
+.carousel-dots-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-bottom: 10px;
+}
+
+.dot-item {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-item.active {
+  background-color: #666;
+  width: 12px;
+  height: 12px;
+}
+
+/* ==========================================================================
+   PANEL DERECHO DE CULTIVO SELECCIONADO
+   ========================================================================== */
+.panel-detalle-selected-cultivo {
+  width: 320px;
+  background-color: #f9fbf9;
+  border: 2px solid #222222;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0px #222222;
+}
+
+.panel-context-label {
+  font-size: 0.78rem;
+  color: #666;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.panel-main-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 2px 0 6px 0;
+}
+
+.badge-category-panel {
+  background-color: #72db63;
+  color: white;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-bottom: 15px;
+}
+
+/* Caja de la foto/vector del Tomate */
+.panel-hero-image-box {
+  background: radial-gradient(circle, #f1f8f5 40%, #e8f5e9 100%);
+  height: 130px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border: 1px solid #dcdcdc;
+}
+
+.panel-big-tomato-emoji {
+  font-size: 4.5rem;
+}
+
+.panel-sub-block-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 15px 0 10px 0;
+  color: #000000;
+}
+
+/* Grid de Información General */
+.panel-general-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: white;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #eaeaea;
+}
+
+.panel-general-info-grid small {
+  color: #777;
+  font-size: 0.72rem;
+  display: block;
+}
+
+.panel-general-info-grid p {
+  margin: 2px 0 0 0;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Bloques de Requerimientos de 3 columnas */
+.panel-requirements-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.req-box-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 8px 4px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.req-icon {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.req-box-item strong {
+  font-size: 0.72rem;
+  display: block;
+  color: #222;
+}
+
+.req-box-item small {
+  font-size: 0.65rem;
+  color: #777;
+}
+
+/* Párrafo descriptivo */
+.panel-description-text {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #444;
+  margin: 0 0 15px 0;
+}
+
+/* Botón Verde de Selección final */
+.btn-panel-select-this-cultivo {
+  background-color: #1a4d2e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: auto; /* Se alinea abajo automáticamente */
+  transition: background-color 0.2s;
+}
+
+.btn-panel-select-this-cultivo:hover {
+  background-color: #133921;
+}

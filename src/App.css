@@ -25,9 +25,16 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 40px;
   font-weight: bold;
+  padding: 20px 0px;
+}
+
+.logo img{
+  height: 70px;
 }
 
 .nav-item {
@@ -42,7 +49,7 @@
 }
 
 .nav-item.active {
-  background-color: #4f772d; /* Verde más claro para el activo */
+
   color: white;
 }
 
@@ -63,4 +70,141 @@
   padding: 15px;
   border-radius: 15px;
   text-align: center;
+}
+
+.nav-icon {
+  width: 22px;   
+  height: 22px;
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+
+.nav-item img {
+  filter: brightness(0) invert(1);
+}
+
+/* Contenedor general de la página de inicio */
+.inicio-container {
+  padding: 10px 20px;
+}
+
+/* El título verde */
+.section-title {
+  color: #1a4d2e;
+  font-size: 1.8rem;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Cuadrícula para poner las dos tarjetas de lado a side */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* Estilo para las tarjetas blancas */
+.summary-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Sombra suave como tu imagen */
+}
+
+.summary-card h3 {
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Sub-cuadrícula para los cuadros de las parcelas */
+.parcel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Las cajas redondeadas con el paisaje */
+.parcel-placeholder-box {
+  background: #f5f5f5;
+  border-radius: 12px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e0e0;
+}
+
+.landscape-icon {
+  font-size: 2rem;
+  opacity: 0.4;
+}
+
+/* Líneas de simulación de los reportes */
+.report-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.line-bar {
+  height: 6px;
+  background-color: #000000;
+  border-radius: 4px;
+}
+
+/* --- ESTILOS DEL BANNER PRINCIPAL --- */
+.hero-section {
+  width: 100%;
+  height: 280px; /* Ajusta la altura a tu gusto */
+  border-radius: 16px; /* Bordes redondeados como tu Sidebar */
+  overflow: hidden; /* Para que los bordes redondeados corten la imagen */
+  margin-bottom: 20px;
+  
+  /* =========================================
+     ¡AQUÍ INSERTAS TU IMAGEN!
+     ========================================= */
+  /* La ruta sube un nivel (..) entra a assets y busca hero.png */
+  background-image: url('./src/assets/banner.png'); 
+  
+  /* Estilos para que la imagen se vea perfecta */
+  background-size: cover;       /* Cubre todo el espacio sin deformarse */
+  background-position: center;  /* Centra la imagen del tractor */
+  background-repeat: no-repeat; /* No repitas la imagen */
+  
+  position: relative; /* Necesario para el overlay negro */
+}
+
+/* El filtro oscuro para que se lea el texto blanco */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Capa negra al 40% de opacidad */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 40px; /* Espaciado del texto hacia adentro */
+}
+
+/* Estilos del texto del banner */
+.hero-overlay h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+}
+
+.hero-overlay p {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
+  max-width: 500px; /* Para que el texto no se extienda tanto */
 }

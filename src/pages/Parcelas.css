@@ -1,0 +1,425 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DE LA PÁGINA DE PARCELAS (Parcelas.jsx)
+   ========================================================================== */
+
+/* Layout Principal: divide la pantalla en la zona izquierda y el panel derecho */
+.parcelas-view-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px 20px;
+  height: calc(100vh - 120px); /* Ajusta para que no desborde con la barra superior */
+  font-family: sans-serif;
+  animation: fadeInParcelas 0.3s ease-in-out;
+}
+
+/* SECCIÓN IZQUIERDA (Filtros y Grid) */
+.parcelas-left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera del título y el botón verde brillante */
+.header-parcelas-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-parcelas-top h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: #000000;
+}
+
+.btn-nueva-parcelas {
+  background-color: #72db63;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-nueva-parcelas:hover {
+  background-color: #5ec450;
+}
+
+/* Barra de Filtros (Buscador y Selects) */
+.filters-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.search-input-box {
+  padding: 8px 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  width: 180px;
+  font-size: 0.9rem;
+}
+
+.filters-bar select, .btn-more-filters {
+  padding: 8px 14px;
+  border: 1.5px solid #ccc;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.sub-title-seccion {
+  font-size: 1.3rem;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+/* Cuadrícula de Tarjetas (Grid de 3 columnas de tus parcelas) */
+.cards-parcelas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+  overflow-y: auto; /* Si tienes muchas parcelas, crea scroll interno solo aquí */
+  padding-right: 5px;
+}
+
+/* Tarjeta individual de Parcela */
+.parcela-item-card {
+  background: white;
+  border: 2px solid #222222; /* Borde oscuro marcado como en tu mockup */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Caja simulada para el paisaje (puedes meter fotos reales aquí después) */
+.parcela-card-image-box {
+  background: #e3f2fd;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #222222;
+}
+
+.landscape-emoji-sim {
+  font-size: 2.5rem;
+  opacity: 0.3;
+}
+
+/* Información interna de la tarjeta */
+.parcela-card-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.85rem;
+}
+
+.card-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.card-cultivo-name {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
+
+.card-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.dot-indicator {
+  width: 100%;
+  max-width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.txt-muted {
+  color: #757575;
+  font-size: 0.78rem;
+}
+
+/* Barra de Paginación inferior */
+.pagination-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0 5px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-numbers button {
+  border: 1.5px solid #ccc;
+  background: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.pagination-numbers button.active {
+  background: #222222;
+  color: white;
+  border-color: #222222;
+}
+
+/* ==========================================================================
+   PANEL DETALLE (SECCIÓN DERECHA FIJA)
+   ========================================================================== */
+.panel-detalle-parcelas {
+  width: 340px;
+  background: #f4f9f6; /* Fondo verde muy claro como en tu imagen */
+  border: 2px solid #222222;
+  border-radius: 24px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0px #222222; /* Efecto de sombra sólida tipo cómic/mockup */
+}
+
+.panel-header-close {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.close-panel-x {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Mini paisaje del panel superior */
+.mini-banner-panel {
+  background: linear-gradient(to bottom, #bbdefb, #e3f2fd);
+  height: 100px;
+  border-radius: 16px;
+  position: relative;
+  margin-bottom: 18px;
+  border: 1px dashed #90caf9;
+}
+
+.panel-banner-title {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-banner-title h3 {
+  margin: 0;
+  color: #222222;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.badge-activa-panel {
+  background: #72db63;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Cuadrícula de Datos Técnicos en Bloques */
+.panel-datos-tecnicos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  border: 1px solid #e0e0e0;
+}
+
+.panel-datos-tecnicos-grid small {
+  color: #666;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.panel-datos-tecnicos-grid p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #222222;
+}
+
+/* Contenedor del Cultivo Actual */
+.panel-cultivo-actual-box {
+  background: #e8f5e9; /* Cuadro verde claro interior */
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid #c8e6c9;
+  margin-bottom: 15px;
+}
+
+.panel-cultivo-actual-box h4 {
+  margin: 0 0 12px 0;
+  color: #2e7d32;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.panel-cultivo-detail-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.tomato-big-icon {
+  font-size: 2.2rem;
+}
+
+.panel-cultivo-labels h5 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.tag-green-sub {
+  background: #72db63;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.tag-light-sub {
+  font-size: 0.72rem;
+  color: #0288d1;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+}
+
+.panel-cultivo-dates-list {
+  font-size: 0.75rem;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.panel-cultivo-dates-list p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Bloques Cuadrados de KPIs Rápidos (los 4 de abajo) */
+.panel-kpi-row-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.kpi-mini-box {
+  background: white;
+  border: 1.5px solid #222222;
+  padding: 8px 4px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 55px;
+}
+
+.kpi-mini-box small {
+  font-size: 0.62rem;
+  color: #444;
+  display: block;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.kpi-mini-box strong {
+  font-size: 0.85rem;
+  color: #222222;
+  margin-top: 4px;
+}
+
+/* Botones del final del panel */
+.panel-action-buttons-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto; /* Empuja los botones siempre al fondo del panel */
+}
+
+.btn-panel-editar {
+  background: white;
+  border: 2px solid #72db63;
+  color: #2e7d32;
+  padding: 10px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-panel-editar:hover {
+  background: #f0fbf2;
+}
+
+.btn-panel-simular {
+  background: #72db63;
+  color: white;
+  border: none;
+  padding: 11px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-panel-simular:hover {
+  background: #5ec450;
+}
+
+/* Animación de entrada fluida */
+@keyframes fadeInParcelas {
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
+}
